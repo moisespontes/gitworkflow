@@ -25,8 +25,8 @@ class Page
         $urlArr = explode("/", $url);
         $urlArr = array_filter($urlArr);
 
-        $this->controller = $urlArr[0];
-        $this->method = ($urlArr[1] ?? 'index');
+        $this->controller = str_slug($urlArr[0]);
+        $this->method = str_slug(($urlArr[1] ?? 'index'), true);
         $this->param = ($urlArr[2] ?? null);
     }
 
@@ -37,6 +37,22 @@ class Page
      */
     public function load(): void
     {
-        //code
+        $class = "Source\App\Controllers\\{$this->controller}";
+
+        if (!class_exists($class)) {
+            $this->controller = 'NotFound';
+            $this->load();
+            return;
+        }
+
+        if (!method_exists($class, $this->method)) {
+            $this->controller = 'NotFound';
+            $this->method = 'index';
+            $this->load();
+            return;
+        }
+
+        (new $class())->{$this->method}($this->param);
+        return;
     }
 }

@@ -3,12 +3,12 @@
 session_start();
 include_once("conexao.php");
 
-$btnLogin = filter_input(INPUT_POST, 'btnLogin', FILTER_SANITIZE_STRING);
+$btnLogin = filter_input(INPUT_POST, 'btnLogin', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if ($btnLogin) {
-    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
 
     //echo "$usuario - $senha";
     if ((!empty($usuario)) and (!empty($senha))) {

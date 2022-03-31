@@ -38,11 +38,10 @@ session_start();
                         <h4>Você ainda não possui uma conta?</h4>
                         <a href="cadastrar.php">Crie grátis</a>
                     </div>
-                    
-                    
                 </form>
             </div>
-        </div>          
+        </div>
+        <!-- script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>

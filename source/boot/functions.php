@@ -25,3 +25,14 @@ function str_slug(string $string, bool $camel = false): string
     $slug = str_replace(' ', '', ucwords(implode(' ', explode('-', str_clear($string)))));
     return ($camel) ? lcfirst($slug) : $slug;
 }
+
+/*##### URLs #####*/
+
+/**
+ * @param string|null $path
+ * @return string
+ */
+function url(string $path = null): string
+{
+    return URL . "/" . ($path[0] === "/" ? mb_substr($path, 1) : $path);
+}

@@ -1,0 +1,22 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+}
+
+.i-social {
+    transition: opacity .3s ease;
+}
+
+.i-social:hover {
+    opacity: .7;
+}
+
+.i-icon {
+    font-size: 1.5em;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+}
